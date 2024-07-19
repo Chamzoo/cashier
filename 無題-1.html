@@ -1,0 +1,77 @@
+<style>
+body {
+    background: #fffbe7;
+    padding: 100px 300px;
+    font-family: "Meiryo" ;
+    
+
+}
+form dl dt {
+    width: 200px;
+    height: 40px;
+    padding: 10px 0;
+    line-height: 40px;
+    float: left;
+
+}
+form dl dd {
+    padding: 10px 0;
+    margin: 0;
+}
+.box {
+    box-sizing: border-box;
+    width: 150px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    border-radius: 10px;
+    border: 1px
+
+
+}
+.calc-btn {
+    width: 350px;
+    height: 30px;
+    color: #fff;
+    font-weight: bold;
+        font-size: 18px;
+    border-radius: 10px;
+    background-color: #de1705;
+    border-bottom: 5px solid #a4301b;
+    border: 1px   
+}
+.calc-btn:hover {
+    cursor: pointer;
+    margin-top: 3px;
+    color: #fff;
+    background: # a4301b;
+    border-bottom: 2px solid #a4301b;
+    
+}
+
+</style>
+
+
+<form class="distance_form">
+    <dl>
+        <dt>行メーター(km)：</dt>
+        <dd><input type="number" class="box" name="gometer"></dd>
+        <dt>帰メーター(km)：</dt>
+        <dd><input type="number" class="box" name="backmeter"></dd>    
+        <dt>　　　 人数(人)：</dt>
+        <dd><input type="number" class="box" name="num"></dd>
+        <p><input type="button" class="calc-btn" onclick="calc(gometer.value, backmeter.value, num.value);" value="　　　Check　　　"></p>
+        <dt>総距離(km)：</dt>
+        <dd><input id="distance" class="box" type="text" readonly=""></dd>
+        <dt>1人当たり(円)：</dt>
+        <dd><input id="yen" class="box" type="text" readonly=""></dd>        
+        
+    </dl>
+    <script>
+    function calc(gometer, backmeter, num) {
+        const distance_value = document.getElementById('distance').value = Math.round(backmeter - gometer);
+        const yen_value = document.getElementById('yen').value = Math.round((distance_value * 30) / num);
+    }
+</script>
+    
+</form>
